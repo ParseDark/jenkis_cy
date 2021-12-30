@@ -1,0 +1,12 @@
+{
+  "name": "jenkis_cy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:ci": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
