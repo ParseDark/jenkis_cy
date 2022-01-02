@@ -8,7 +8,6 @@ pipeline {
   stages {
     stage('install') {
       steps {
-        sh 'npm install --save-dev cypress'
         sh 'npm ci'
       }
     }
@@ -26,6 +25,7 @@ pipeline {
           keepAll: true,
           reportDir: 'report',
           reportFiles: 'merge-report.html',
+          includes: '**/*',
           reportName: 'My Reports',
           reportTitles: 'The Report'])
       }
