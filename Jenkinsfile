@@ -41,6 +41,7 @@ pipeline {
     success {
         echo 'Succeeeded! : ）'
         emailext (
+          to: '13005440214@163.com',
           subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
           body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
             <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
@@ -50,6 +51,7 @@ pipeline {
     failure {
         echo 'Failed :('
         emailext (
+          to: '13005440214@163.com',
           subject: "Failed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
           body: """<p>Failed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
             <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
