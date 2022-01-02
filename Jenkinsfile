@@ -3,9 +3,9 @@ pipeline {
     docker {
       image 'whd1073363531/cypress_env:9.2.0'
     }
-    triggers {
-        cron('*/5 * * * *')
-    }
+  }
+   triggers {
+      cron('*/5 * * * *')
   }
   stages {
     stage('Install') {
