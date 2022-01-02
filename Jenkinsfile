@@ -22,7 +22,7 @@ pipeline {
 
    post {
         always {
-            archiveArtifacts artifacts: '/report/**/*.html', fingerprint: true, allowEmptyArchive: true,
+            archiveArtifacts artifacts: '/report/**/*.html', fingerprint: true, allowEmptyArchive: true
         }
     }
 }
