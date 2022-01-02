@@ -5,7 +5,8 @@ pipeline {
     }
   }
    triggers {
-      cron('*/5 * * * *')
+      /* cron: every 5mins will trigger the pipeline */
+      cron('*/4 * * * *')
   }
   stages {
     stage('Install') {
@@ -37,15 +38,14 @@ pipeline {
   post {
     always {
         echo 'Finish....'
-        archiveArtifacts artifacts: 'report/*', onlyIfSuccessful: true
         /* clean up our workspace */
+        deleteDir()
     }
     success {
         echo 'Succeeeded! : ）'
         emailext (
           to: '13005440214@163.com',
           attachLog: true,
-          attachmentsPattern: './report',
           subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
           body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
             <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
