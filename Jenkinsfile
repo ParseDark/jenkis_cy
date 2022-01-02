@@ -18,18 +18,11 @@ pipeline {
         sh 'npm run test:ci'
       }
     }
-
-    stage('post report') {
-      steps {
-        archiveArtifacts(artifacts: '/report/*.html', allowEmptyArchive: true, defaultExcludes: true, caseSensitive: true)
-      }
-    }
-
-    stage('clean') {
-      steps {
-        sh 'npm run clean'
-      }
-    }
-
   }
+
+   post {
+        always {
+            archiveArtifacts artifacts: '/report/*.html', fingerprint: true, allowEmptyArchive: true,
+        }
+    }
 }
