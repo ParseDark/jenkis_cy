@@ -18,11 +18,17 @@ pipeline {
         sh 'npm run test:ci'
       }
     }
-  }
 
-   post {
-        always {
-            archiveArtifacts artifacts: '/report/*.html', fingerprint: true, allowEmptyArchive: true
-        }
+    stage('html test report') {
+      steps {
+        publishHTML (target : [allowMissing: false,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'report',
+          reportFiles: 'merge-report.html',
+          reportName: 'My Reports',
+          reportTitles: 'The Report'])
+      }
     }
+  }
 }
