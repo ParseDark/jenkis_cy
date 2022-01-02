@@ -42,7 +42,7 @@ pipeline {
         echo 'Succeeeded! : ）'
     }
     failure {
-        echo 'Failed :(',
+        echo 'Failed :('
         emailext (
           subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
           body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
