@@ -21,19 +21,13 @@ pipeline {
 
     stage('post report') {
       steps {
-        archiveArtifacts(artifacts: '/report', allowEmptyArchive: true, defaultExcludes: true, caseSensitive: true)
+        archiveArtifacts(artifacts: './report/**/*', allowEmptyArchive: true, defaultExcludes: true, caseSensitive: true)
       }
     }
 
     stage('clean') {
       steps {
         sh 'npm run clean'
-      }
-    }
-
-    stage('Deliver') {
-      steps {
-        input 'Finished using the web site? (Click "Proceed" to continue)'
       }
     }
 
