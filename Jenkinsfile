@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'cypress/included:9.2.0'
+      image 'whd1073363531/cypress_env:9.2.0'
     }
 
   }
