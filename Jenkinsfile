@@ -21,7 +21,7 @@ pipeline {
 
     stage('post report') {
       steps {
-        archiveArtifacts(artifacts: './report/**/*', allowEmptyArchive: true, defaultExcludes: true, caseSensitive: true)
+        archiveArtifacts(artifacts: '/report/*.html', allowEmptyArchive: true, defaultExcludes: true, caseSensitive: true)
       }
     }
 
