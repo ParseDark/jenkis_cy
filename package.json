@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:ci": "npx cypress run"
+    "test:ci": "./scripts/test.sh",
+    "clean": "./scripts/clean.sh"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^9.2.0"
+    "cypress": "^9.2.0",
+    "mocha": "^7.2.0",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.0.3",
+    "mochawesome-report-generator": "^5.1.0"
   }
 }
