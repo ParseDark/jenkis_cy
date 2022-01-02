@@ -38,7 +38,6 @@ pipeline {
     always {
         echo 'Finish....'
         archiveArtifacts artifacts: 'report/*', onlyIfSuccessful: true
-        archiveArtifacts artifacts: 'videos/*', onlyIfSuccessful: true
         /* clean up our workspace */
         deleteDir() 
     }
@@ -47,7 +46,7 @@ pipeline {
         emailext (
           to: '13005440214@163.com',
           attachLog: true,
-          attachmentsPattern: 'videos',
+          attachmentsPattern: 'report',
           subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
           body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
             <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
