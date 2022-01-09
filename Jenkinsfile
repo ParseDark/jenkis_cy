@@ -20,22 +20,19 @@ pipeline {
         sh 'npm run test:ci'
       }
     }
-
-    stage('Html test report') {
-      always {
-        /* create test report */
-        publishHTML (target : [allowMissing: false,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'report',
-          reportFiles: 'merge-report.html',
-          includes: '**/*',
-          reportName: 'My Reports',
-          reportTitles: 'The Report'])
-      }
-    }
   }
   post {
+    always {
+      /* create test report */
+      publishHTML (target : [allowMissing: false,
+        alwaysLinkToLastBuild: true,
+        keepAll: true,
+        reportDir: 'report',
+        reportFiles: 'merge-report.html',
+        includes: '**/*',
+        reportName: 'My Reports',
+        reportTitles: 'The Report'])
+    }
     always {
         echo 'Finish....'
         /* clean up our workspace */
