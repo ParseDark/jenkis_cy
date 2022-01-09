@@ -62,6 +62,6 @@ context('Actions', () => {
       .find('[type="text"]').type('HALFOFF')
 
     cy.get('.action-form').submit()
-      .next().should('contain', '11111')
+      .next().should('contain', 'Your form has been submitted!')
   })
 })
