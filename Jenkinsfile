@@ -22,7 +22,7 @@ pipeline {
     }
 
     stage('Html test report') {
-      steps {
+      always {
         /* create test report */
         publishHTML (target : [allowMissing: false,
           alwaysLinkToLastBuild: true,
