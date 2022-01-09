@@ -23,6 +23,10 @@ pipeline {
   }
   post {
     always {
+      sh "npx mochawesome-merge cypress/results/*.json > merge-report.json"
+      
+      sh "npx mochawesome-report-generator -o=./report -i merge-report.json"
+
       /* create test report */
       publishHTML (target : [allowMissing: false,
         alwaysLinkToLastBuild: true,
@@ -32,6 +36,8 @@ pipeline {
         includes: '**/*',
         reportName: 'My Reports',
         reportTitles: 'The Report'])
+
+
         echo 'Finish....'
         /* clean up our workspace */
         deleteDir()
