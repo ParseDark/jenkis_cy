@@ -32,8 +32,6 @@ pipeline {
         includes: '**/*',
         reportName: 'My Reports',
         reportTitles: 'The Report'])
-    }
-    always {
         echo 'Finish....'
         /* clean up our workspace */
         deleteDir()
