@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'whd1073363531/cypress_env:9.2.0'
-    }
-  }
+  agent any
    triggers {
       /* cron: every 5mins will trigger the pipeline */
       cron('*/4 * * * *')
