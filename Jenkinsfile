@@ -17,9 +17,6 @@ cypress -v'''
     }
 
   }
-  tools {
-    nodejs 'node17'
-  }
   post {
     always {
       sh 'npx mochawesome-merge cypress/results/*.json > merge-report.json'
