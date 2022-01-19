@@ -1,6 +1,7 @@
 pipeline {
   agent any
-   triggers {
+  tools {nodejs "node17"}
+  triggers {
       /* cron: every 5mins will trigger the pipeline */
       cron('*/4 * * * *')
   }
